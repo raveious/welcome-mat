@@ -10,5 +10,5 @@ include(IDLGeneration)
 
 # Doing this later because they define a macro that replaces the `project` keyword...
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(mecha-floura)
+project(welcome-mat)
 
