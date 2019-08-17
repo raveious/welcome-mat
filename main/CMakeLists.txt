@@ -1,5 +1,5 @@
 # Edit following two lines to set component requirements (see docs)
-set(COMPONENT_REQUIRES xrce-dds-client microcdr newlib nvs_flash)
+set(COMPONENT_REQUIRES xrce-dds-client microcdr newlib nvs_flash epd7in5b)
 #set(COMPONENT_PRIV_REQUIRES )
 
 file(GLOB_RECURSE COMPONENT_SRCS "*.c")
