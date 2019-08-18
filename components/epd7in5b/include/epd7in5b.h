@@ -72,26 +72,13 @@
 #define READ_VCOM_VALUE                             0x81
 #define VCM_DC_SETTING                              0x82
 
-class Epd : EpdIf {
-public:
-    unsigned long width;
-    unsigned long height;
-
-    Epd();
-    ~Epd();
-    int  Init(void);
-    void WaitUntilIdle(void);
-    void Reset(void);
-    void DisplayFrame(const unsigned char** image_data);
-    void SendCommand(unsigned char command);
-    void SendData(unsigned char data);
-    void Sleep(void);
-private:
-    unsigned int reset_pin;
-    unsigned int dc_pin;
-    unsigned int cs_pin;
-    unsigned int busy_pin;
-};
+int  epd7in5b_init(void);
+void epd7in5b_wait_until_idle(void);
+void epd7in5b_reset(void);
+void epd7in5b_display_frame(const unsigned char* frame_black, const unsigned char* frame_red);
+void epd7in5b_send_command(unsigned char command);
+void epd7in5b_send_data(unsigned char data);
+void epd7in5b_sleep(void);
 
 #endif /* EPD7IN5B_H */
 

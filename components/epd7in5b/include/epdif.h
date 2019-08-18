@@ -28,24 +28,28 @@
 #ifndef EPDIF_H
 #define EPDIF_H
 
-#include <Arduino.h>
+#include "driver/gpio.h"
+#include "driver/spi_master.h"
+#include "esp_system.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "soc/gpio_struct.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 // Pin definition
-#define RST_PIN         8
-#define DC_PIN          9
-#define CS_PIN          10
-#define BUSY_PIN        7
+#define MOSI_PIN GPIO_NUM_27
+#define CLK_PIN GPIO_NUM_26
+#define CS_PIN GPIO_NUM_25
+#define DC_PIN GPIO_NUM_33
+#define RST_PIN GPIO_NUM_32
+#define BUSY_PIN GPIO_NUM_35
 
-class EpdIf {
-public:
-    EpdIf(void);
-    ~EpdIf(void);
-
-    static int  IfInit(void);
-    static void DigitalWrite(int pin, int value); 
-    static int  DigitalRead(int pin);
-    static void DelayMs(unsigned int delaytime);
-    static void SpiTransfer(unsigned char data);
-};
+int  ifinit(void);
+void digital_write(gpio_num_t pin, int value);
+int  digital_read(gpio_num_t pin);
+void delay_ms(unsigned int delaytime);
+void spi_transfer(unsigned char data);
 
 #endif

@@ -10,6 +10,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+#ifndef CONFIG_ESP_WIFI_SSID
+#error Wifi SSID was not defined
+#endif
+
+#ifndef CONFIG_ESP_WIFI_PASSWORD
+#error Wifi password was not defined
+#endif
+
 esp_err_t event_handler(void *ctx, system_event_t *event)
 {
     switch (event->event_id) {
